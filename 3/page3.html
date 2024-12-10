@@ -1,0 +1,239 @@
+<!DOCTYPE html>  
+<html lang="ru">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="styles.css">  
+    <title>Регистрация и покупка Pro</title>  
+</head>  
+<body>   
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+        <a class="navbar-brand d-flex align-items-center" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\1\index.html">  
+            <img src="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\image\logo.jpg" alt="Логотип" class="logo-img">  
+            Математический задачник  
+        </a>  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">  
+            <span class="navbar-toggler-icon"></span>  
+        </button>  
+        <div class="collapse navbar-collapse" id="navbarNav">  
+            <ul class="navbar-nav ml-auto">  
+            <ul class="navbar-nav">  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\4\page4.html">О нас</a>  
+                </li>  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\1\index.html">Ввод заданий</a>  
+                </li>  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\5\page5.html">Личный кабинет</a>  
+                </li>  
+            </ul>  
+            <a class="btn btn-pro ml-auto" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\5\page5.html">Купить Pro</a>   
+        </div>  
+    </nav>  
+
+
+
+<div class="container mt-5">  
+    <h2 class="text-center">Развернутое решение уравнения</h2>  
+    <div id="taskDetails"></div>  
+
+    <button id="showTheoryBtn" class="btn btn-primary mt-3">Показать теорию и пошаговое решение</button>  
+    <div id="theoryAndSteps" class="mt-4 collapse"></div>  
+</div>  
+
+<script>  
+    const params = new URLSearchParams(window.location.search);  
+    const taskType = params.get('taskType');  
+
+    const taskDetails = document.getElementById('taskDetails');  
+    const theoryAndSteps = document.getElementById('theoryAndSteps');  
+    const showTheoryBtn = document.getElementById('showTheoryBtn');  
+
+    // Функция для вывода деталей задачи  
+    function displayTaskDetails() {  
+        let equation = '';  
+        switch (taskType) {  
+            case 'linear':  
+                equation = `${params.get('a')}x + ${params.get('b')} = 0`;  
+                break;  
+            case 'quadratic':  
+                equation = `${params.get('a')}x² + ${params.get('b')}x + ${params.get('c')} = 0`;  
+                break;  
+            case 'cubic':  
+                equation = `${params.get('a')}x³ + ${params.get('b')}x² + ${params.get('c')}x + ${params.get('d')} = 0`;  
+                break;  
+            case 'rational':  
+                equation = `${params.get('numerator')} / (${params.get('denominator')}) = 0`;  
+                break;  
+            case 'exponential':  
+                equation = `${params.get('base')}^x = ${params.get('result')}`;  
+                break;  
+            case 'linear_inequality':  
+                equation = `${params.get('a')}x + ${params.get('b')} > 0`;  
+                break;  
+            case 'quadratic_inequality':  
+                equation = `${params.get('a')}x² + ${params.get('b')}x + ${params.get('c')} < 0`;  
+                break;  
+            case 'irrational_inequality':  
+                equation = `√x > ${params.get('value')}`;  
+                break;  
+            default:  
+                equation = 'Неизвестный тип задачи.';  
+        }  
+        taskDetails.innerHTML = `<p><strong>Решите уравнение: ${equation}</strong></p>`;  
+    }  
+
+    // Функция для вывода теории и шагов решения  
+    function displayTheoryAndSteps() {  
+        let theoryAndStepsContent = '';  
+        switch (taskType) {  
+            case 'linear':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                     <h3>Линейные уравнения: <pre>ax + b = 0</pre></h3>  
+    <p>Это уравнение первой степени, где <strong>a</strong> и <strong>b</strong> — числовые коэффициенты.</p>  
+    <p>Для решения нужно изолировать переменную <strong>x</strong>: <strong>x = -b/a</strong>.</p>  
+    <p>Оно имеет единственное решение.</p> 
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Сначала изолируем переменную x. Для этого перенесем b на другую сторону уравнения: <strong>ax = -b</strong>.</li>  
+                        <li>Затем делим обе стороны на a: <strong>x = -b/a</strong>.</li>  
+                        <li>Таким образом, мы находим значение х.</li>  
+                    </ol>`;  
+                break;  
+            case 'quadratic':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                       <h3>Квадратные уравнения: <pre>ax² + bx + c = 0</pre></h3>  
+    <p>Это уравнение второй степени, где <strong>a ≠ 0</strong>.</p>  
+    <p>Для решения используется дискриминант <strong>D = b² - 4ac</strong>:</p>  
+    <ul>  
+        <li>Если <strong>D > 0</strong>, два разных корня.</li>  
+        <li>Если <strong>D = 0</strong>, один корень.</li>  
+        <li>Если <strong>D < 0</strong>, корней нет.</li>  
+    </ul> 
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Найдите дискриминант: <strong>D = b² - 4ac</strong>.</li>  
+                        <li>В зависимости от значения D, у уравнения могут быть:  
+                          <ul>  
+                              <li>два действительных корня (если D > 0):   
+                                  <strong>x₁ = (-b + √D) / (2a)</strong>,   
+                                  <strong>x₂ = (-b - √D) / (2a)</strong>.</li>  
+                              <li>один корень (если D = 0): <strong>x = -b / (2a)</strong>.</li>  
+                              <li>нет действительных корней (если D < 0).</li>  
+                          </ul>  
+                        </li>  
+                    </ol>`;  
+                break;  
+            case 'cubic':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                    <h3>Кубические уравнения: <pre>ax³ + bx² + cx + d = 0</pre></h3>  
+    <p>Это уравнение третьей степени.</p>  
+    <p>Может иметь от одного до трех действительных корней.</p>  
+    <p>Решается методом подбора, делением многочленов или через специальные формулы (например, формулу Кардано).</p>  
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Если возможно, вынесите общий множитель перед равенством.</li>  
+                        <li>Проверьте наличие очевидных корней (например, воспользуйтесь методом подбора).</li>  
+                        <li>Используя найденный корень, разложите кубическое уравнение на множители с помощью деления многочленов.</li>  
+                        <li>Решите оставшееся квадратное уравнение (если оно есть) для нахождения других корней.</li>  
+                    </ol>`;  
+                break;  
+            case 'rational':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                    <h3>Рациональные уравнения: <pre>frac{x}{x+1} = 2</pre></h3>  
+    <p>Включает дроби, где переменная <strong>x</strong> находится в числителе или знаменателе.</p>  
+    <p>Чтобы решить, уберем дроби, умножив обе стороны на <strong>(x+1)</strong>, но нельзя забывать про область определения.</p>  
+    <p>Получаем стандартное уравнение, которое можно решить.</p>  
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Умножьте обе стороны уравнения на (x + 1): <strong>x = 2(x + 1)</strong>.</li>  
+                        <li>Решите полученное линейное уравнение.</li>  
+                    </ol>`;  
+                break;  
+            case 'exponential':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                    <h3>Показательные уравнения: <pre>2^x = 16</pre></h3>  
+    <p>Содержит переменную в показателе.</p>  
+    <p>Решение можно найти с помощью логарифмов или преобразования: <strong>16</strong> можно представить как <strong>2^4</strong>.</p>  
+    <p>Таким образом, <strong>x = 4</strong>.</p> 
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Запишите уравнение в форме логарифма: <strong>x = log₂(16)</strong>.</li>  
+                        <li>Примените свойства логарифмов, чтобы упростить задачу.</li>  
+                    </ol>`;  
+                break;  
+            case 'linear_inequality':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                    <h3>Линейные неравенства: <pre>ax + b > 0</pre></h3>  
+    <p>Это неравенство первой степени.</p>  
+    <p>Решение включает изоляцию переменной: <strong>x > -b/a</strong>.</p>  
+    <p>Результат обычно записывается в интервале на числовой оси.</p>  
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Изолируем x: <strong>x > -b/a</strong>.</li>  
+                        <li>Определим интервалы на числовой оси, удовлетворяющие неравенству.</li>  
+                    </ol>`;  
+                break;  
+            case 'quadratic_inequality':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                    <h3>Квадратные неравенства: <pre>ax² + bx + c < 0</pre></h3>  
+    <p>Это неравенство второй степени.</p>  
+    <p>Решается через нахождение корней соответствующего квадратного уравнения и анализ знаков на интервалах.</p>  
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Находим дискриминант D для уравнения: <strong>D = b² - 4ac</strong>.</li>  
+                        <li>Находим корни уравнения, проводим анализ знаков для определения промежутков, где выполняется неравенство.</li>  
+                    </ol>`;  
+                break;  
+            case 'irrational_inequality':  
+                theoryAndStepsContent = `  
+                    <h4>Теория:</h4>  
+                   <h3>Иррациональные неравенства: <pre>sqrt{x} > 2</pre></h3>  
+    <p>Содержит корень, который необходимо учесть.</p>  
+    <p>Чтобы решить, возводим обе стороны в квадрат: <strong>x > 4</strong>.</p>  
+    <p>Также проверяем, чтобы значение под корнем было неотрицательным.</p>  
+                    <h4>Шаги решения:</h4>  
+                    <ol>  
+                        <li>Возвести в квадрат: <strong>x > k²</strong>.</li>  
+                        <li>Определите область допустимых значений и решить полученное неравенство.</li>  
+                    </ol>`;  
+                break;  
+            default:  
+                theoryAndStepsContent = `<p>Неизвестный тип задачи.</p>`;  
+        }  
+
+        theoryAndSteps.innerHTML = theoryAndStepsContent;  
+    }  
+
+    // Обработчик события для кнопки отображения теории и шагов  
+    showTheoryBtn.addEventListener('click', () => {  
+        if (theoryAndSteps.classList.contains('collapse')) {  
+            displayTheoryAndSteps();  
+            theoryAndSteps.classList.remove('collapse');  
+            showTheoryBtn.textContent = "Скрыть теорию и пошаговое решение";  
+        } else {  
+            theoryAndSteps.classList.add('collapse');  
+            showTheoryBtn.textContent = "Показать теорию и пошаговое решение";  
+        }  
+    });  
+
+    // Выполняем функции для вывода информации  
+    displayTaskDetails();  
+</script>  
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>  
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+</body>  
+</html>
+

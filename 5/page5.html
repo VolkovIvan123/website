@@ -1,0 +1,113 @@
+<!DOCTYPE html>  
+<html lang="ru">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="styles.css">  
+    <title>Регистрация и покупка Pro</title>  
+</head>  
+<body>   
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">  
+        <a class="navbar-brand d-flex align-items-center" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\1\index.html">  
+            <img src="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\image\logo.jpg" alt="Логотип" class="logo-img">  
+            Математический задачник  
+        </a>  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">  
+            <span class="navbar-toggler-icon"></span>  
+        </button>  
+        <div class="collapse navbar-collapse" id="navbarNav">  
+            <ul class="navbar-nav ml-auto">  
+            <ul class="navbar-nav">  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\4\page4.html">О нас</a>  
+                </li>  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\1\index.html">Ввод заданий</a>  
+                </li>  
+                <li class="nav-item">  
+                    <a class="nav-link" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\5\page5.html">Личный кабинет</a>  
+                </li>  
+            </ul>  
+            <a class="btn btn-pro ml-auto" href="C:\Users\mvide\OneDrive\Рабочий стол\Лабы 3\Курсач\sai\5\page5.html">Купить Pro</a>   
+        </div>  
+    </nav>  
+
+    <div class="container mt-5">    
+        <div class="row">  
+            <div class="col-md-6">  
+                <h2>Регистрация</h2>  
+                <form id="registrationForm">  
+                    <div class="form-group">  
+                        <label for="name">Введите Имя Фамилия</label>  
+                        <input type="text" class="form-control" id="name" placeholder="Имя Фамилия" required>  
+                    </div>  
+                    <div class="form-group">  
+                        <label for="username">Введите Username</label>  
+                        <input type="text" class="form-control" id="username" placeholder="Username" required>  
+                    </div>  
+                    <div class="form-group">  
+                        <label for="email">Введите Email</label>  
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>  
+                    </div>  
+                    <button type="submit" class="btn btn-primary">Отправить</button>  
+                    <hr style="border-top: 1px solid gray;" class="mb-4">  
+                </form>  
+                <p class="mt-4">Регистрация помогает собирать статистику для администрации сайта.</p>  
+            </div>  
+
+            <div class="col-md-6">  
+                <h2>Купить Pro</h2>  
+                <form id="purchaseForm">  
+                    <div class="form-group">  
+                        <label for="namePro">Введите Имя Фамилия</label>  
+                        <input type="text" class="form-control" id="namePro" placeholder="Имя Фамилия" required>  
+                    </div>  
+                    <div class="form-group">  
+                        <label for="cardNumber">Введите Номер карты</label>  
+                        <input type="text" class="form-control" id="cardNumber" placeholder="Номер карты" required>  
+                    </div>  
+                    <div class="form-group">  
+                        <label for="emailPro">Введите Email</label>  
+                        <input type="email" class="form-control" id="emailPro" placeholder="Email" required>  
+                    </div>  
+                    <button type="submit" class="btn btn-primary">Отправить</button>  
+                    <hr style="border-top: 1px solid gray;" class="mb-4">  
+                </form>  
+                <p class="mt-4">Про подписка стоит 299 руб в месяц. Она дает возможность запоминать все решенные примеры, а также открывает доступ к большему колличетву шаблонов задач.</p>  
+            </div>  
+        </div>  
+    </div>  
+
+    <script>  
+        // Обработка данных регистрации  
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {  
+            event.preventDefault();  // Предотвращаем перезагрузку страницы  
+            const name = document.getElementById('name').value;  
+            const username = document.getElementById('username').value;  
+            const email = document.getElementById('email').value;  
+
+            alert(`Регистрация успешна! \nИмя: ${name} \nUsername: ${username} \nEmail: ${email}`);  
+            // Здесь можно добавить код для отправки данных на сервер  
+            this.reset(); // Сброс формы после отправки  
+        });  
+
+        // Обработка данных для покупки Pro  
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {  
+            event.preventDefault();  // Предотвращаем перезагрузку страницы  
+            const namePro = document.getElementById('namePro').value;  
+            const cardNumber = document.getElementById('cardNumber').value;  
+            const emailPro = document.getElementById('emailPro').value;  
+
+            alert(`Покупка Pro версии успешна! \nИмя: ${namePro} \nНомер карты: ${cardNumber} \nEmail: ${emailPro}`);  
+     
+            this.reset(); // Сброс формы после отправки  
+        });  
+    </script>  
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+</body>  
+</html>

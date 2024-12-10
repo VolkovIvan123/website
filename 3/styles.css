@@ -1,0 +1,79 @@
+.container {
+  margin-top: 50px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+.list-group-item {
+  position: relative;
+  padding: 15px;
+}
+.list-group-item .btn-link {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #007bff;
+}
+.list-group-item .btn-link:hover {
+  text-decoration: underline;
+}
+.list-group-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  display: none;
+}
+.list-group-item.active p {
+  display: block;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.navbar {
+  background-color: #FFFFFF;
+}
+.navbar .navbar-nav .nav-item {
+  margin-right: 20px;
+}
+.navbar .logo-img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.btn-pro {
+  background-color: #007bff;
+  color: white;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+.btn-pro:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/*# sourceMappingURL=styles.css.map */

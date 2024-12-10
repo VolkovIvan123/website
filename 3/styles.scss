@@ -1,0 +1,96 @@
+// Стиль для контейнера страницы  
+.container {  
+    margin-top: 50px;  
+}  
+
+// Заголовки  
+h1 {  
+    font-weight: bold;  
+}  
+
+h2 {  
+    margin-top: 20px;  
+}  
+
+h3 {  
+    margin-top: 30px;  
+}  
+
+// Стили для пошаговых решений  
+.list-group-item {  
+    position: relative;  
+    padding: 15px;  
+
+    // Стиль для кнопки "Подробнее"  
+    .btn-link {  
+        position: absolute;  
+        right: 15px;  
+        top: 10px;  
+        color: #007bff; // Цвет ссылки (если нужно, можно изменить)  
+
+        &:hover {  
+            text-decoration: underline;  
+        }  
+    }  
+
+    p {  
+        margin-top: 10px; // Отступ для раскрываемого текста  
+        font-size: 14px; // Размер текста для описания  
+        display: none; // Скрываем по умолчанию  
+    }  
+
+    // Добавляем эффект при открытии  
+    &.active {  
+        p {  
+            display: block; // Показываем текст при активном состоянии  
+        }  
+    }  
+}  
+
+// Кнопки  
+.btn-secondary {  
+    background-color: #6c757d;  
+    color: white;  
+    border: none;  
+
+    &:hover {  
+        background-color: #5a6268; // Добавим эффект наведения  
+    }  
+}  
+
+.btn-primary {  
+    background-color: #007bff;  
+    color: white;  
+
+    &:hover {  
+        background-color: #0056b3; // Темный оттенок для наведения  
+    }  
+}
+
+
+.navbar {  
+    background-color: #FFFFFF; // Измените фон на белый  
+ 
+  
+    .navbar-nav .nav-item {  
+        margin-right: 20px; // Добавляем отступ между кнопками меню  
+    }  
+
+    .logo-img {  
+        width: 40px; // Ширина логотипа  
+        height: auto; // Автоматическая высота  
+        margin-right: 10px; // Отступ справа от логотипа  
+    }  
+}
+
+.btn-pro {  
+    background-color: #007bff; // Синий фон  
+    color: white; // Белый шрифт  
+    border-radius: 15px; // Закругленные углы  
+    padding: 10px 20px; // Добавляем немного отступов для большей удобочитаемости  
+
+    &:hover {  
+        background-color: #0056b3; // Более темный оттенок для наведения  
+        color: white; // Белый текст при наведении  
+    }  
+}  

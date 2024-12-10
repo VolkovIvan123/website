@@ -1,0 +1,56 @@
+// Стили для четвертой страницы  
+
+.container {  
+    margin-top: 50px;  
+    text-align: center; // Центрирование текста  
+}  
+
+h1 {  
+    font-weight: bold;  
+}  
+
+h2 {  
+    margin-top: 20px;  
+}  
+
+p {  
+    font-size: 18px; // Размер шрифта для текста  
+}  
+
+.btn-primary {  
+    margin-top: 20px; // Отступ сверху для кнопки  
+    background-color: #007bff;  
+    color: white;  
+
+    &:hover {  
+        background-color: #0056b3; // Темный оттенок для наведения  
+    }  
+}
+
+
+.navbar {  
+    background-color: #FFFFFF; // Измените фон на белый  
+ 
+  
+    .navbar-nav .nav-item {  
+        margin-right: 20px; // Добавляем отступ между кнопками меню  
+    }  
+
+    .logo-img {  
+        width: 40px; // Ширина логотипа  
+        height: auto; // Автоматическая высота  
+        margin-right: 10px; // Отступ справа от логотипа  
+    }  
+}
+
+.btn-pro {  
+    background-color: #007bff; // Синий фон  
+    color: white; // Белый шрифт  
+    border-radius: 15px; // Закругленные углы  
+    padding: 10px 20px; // Добавляем немного отступов для большей удобочитаемости  
+
+    &:hover {  
+        background-color: #0056b3; // Более темный оттенок для наведения  
+        color: white; // Белый текст при наведении  
+    }  
+}  
